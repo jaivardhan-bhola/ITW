@@ -1,0 +1,125 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('your-background-image-url.jpg') no-repeat center center fixed; /* Add your image URL here */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Overlay to make sure content is readable */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay to enhance text visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Content Container for Centering */
+  .content-container {
+    text-align: center;
+    color: white;
+  }
+  
+  /* Main Heading Styling */
+  .main-heading {
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Form Container Styling */
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* White background with some transparency */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+  }
+  
+  /* Heading for Form Styling */
+  h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Label Styling */
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  /* Input Field Styling */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border 0.3s ease-in-out;
+  }
+  
+  /* Input Focus Styling */
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  /* Submit Button Styling */
+  input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 400px) {
+    .form-container {
+      width: 90%;
+      padding: 20px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"] {
+      font-size: 14px;
+    }
+  }
+  
