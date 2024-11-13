@@ -1,0 +1,137 @@
+_________________________________________________________________________________
+1. Hello World Script
+
+Purpose: The simplest bash program to print "Hello, World!" to the terminal.
+Code:
+bash
+
+#!/bin/bash
+echo "Hello, World!"
+_______________________________________________________________________________
+2. File Backup Script
+Purpose: Create a backup of a file or directory with a timestamp.
+Code:
+bash
+
+
+
+#!/bin/bash
+source_file=$1
+backup_dir=$2
+timestamp=$(date +'%Y%m%d_%H%M%S')
+cp -r $source_file "$backup_dir/$(basename $source_file)_$timestamp"
+echo "Backup of $source_file created in $backup_dir"
+________________________________________________________________________________
+3. Directory Listing with Details
+Purpose: Display a detailed listing of files and directories, with color-coding.
+Code:
+bash
+ 
+#!/bin/bash
+ls -lh --color=auto
+________________________________________________________________________________
+4. Disk Usage Analyzer
+Purpose: Show disk usage of directories in a human-readable format.
+Code:
+bash
+ 
+#!/bin/bash
+du -h --max-depth=1
+_______________________________________________________________________________
+5. File Search Script
+Purpose: Search for files by name within a directory.
+Code:
+bash
+ 
+#!/bin/bash
+find $1 -type f -name "$2"
+______________________________________________________________________________
+6. Batch Rename Files
+Purpose: Rename multiple files in a directory by appending a prefix or suffix.
+Code:
+bash
+ 
+#!/bin/bash
+for file in $1/*; do
+    mv "$file" "$1/prefix_$(basename "$file")"
+done
+echo "Files renamed successfully."
+______________________________________________________________________________
+7. Check Disk Space
+Purpose: Display disk space usage for all mounted filesystems.
+Code:
+bash
+ 
+#!/bin/bash
+df -h
+______________________________________________________________________________
+8. Process Monitor
+Purpose: List all running processes with a specific pattern.
+Code:
+bash
+ 
+#!/bin/bash
+ps aux | grep "$1"
+___________________________________________________________________________
+9. Simple Calculator
+Purpose: Create a simple calculator using bash.
+Code:
+bash
+ 
+#!/bin/bash
+echo "Enter first number:"
+read num1
+echo "Enter operator (+, -, *, /):"
+read op
+echo "Enter second number:"
+read num2
+
+result=$(echo "scale=2; $num1 $op $num2" | bc)
+echo "Result: $result"
+
+______________________________________________________________________________________
+10. Log Rotator Script
+Purpose: Rotate log files by compressing old logs and keeping the last X logs.
+Code:
+bash
+ 
+#!/bin/bash
+log_dir=$1
+max_logs=$2
+logs=($(ls -t $log_dir))
+num_logs=${#logs[@]}
+
+if [ $num_logs -gt $max_logs ]; then
+    logs_to_delete=$(($num_logs - $max_logs))
+    for ((i=$max_logs; i<$num_logs; i++)); do
+        rm -f "$log_dir/${logs[$i]}"
+    done
+    echo "$logs_to_delete old logs deleted."
+else
+    echo "No logs to delete."
+fi
+_____________________________________________________________________________________
+Bonus: Command Line Todo List
+Purpose: Create a basic todo list using bash commands.
+Code:
+bash
+ 
+#!/bin/bash
+todo_file="todo.txt"
+
+case "$1" in
+    add)
+        echo "$2" >> $todo_file
+        echo "Todo added."
+        ;;
+    list)
+        cat $todo_file
+        ;;
+    remove)
+        sed -i "/$2/d" $todo_file
+        echo "Todo removed."
+        ;;
+    *)
+        echo "Usage: $0 {add|list|remove}"
+        ;;
+esac
